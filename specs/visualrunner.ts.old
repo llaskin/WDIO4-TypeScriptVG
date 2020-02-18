@@ -1,0 +1,140 @@
+// // import { ContainerTypes, Eikon, EikonDriver, FindBy, OpenBy, Platforms, SearchBy, Util } from '@tr/eikon-driver';
+// import { assert, expect } from 'chai';
+// // import { ThinMonitorApp } from '..';
+// // import { ThinMonitorHelper } from '..';
+// import applitoolsConfig from '../applitools-config.json';
+// // import { Grid } from '../src/Table/Grid';
+//
+// const { VisualGridRunner, Eyes, Target, By, MatchLevel, BatchInfo, BrowserType, ScreenOrientation, DeviceName, Configuration, ConsoleLogHandler } = require('@applitools/eyes.webdriverio');
+// //const { Configuration, ConsoleLogHandler, FileLogHandler } = require('@applitools/eyes-selenium');
+//
+// // let Time: any = Util.Time;
+//
+// let objThinMonitorHelper: any = new ThinMonitorHelper();
+// let objGrid: any = new Grid();
+// const searchURL: string = 'cpurl://apps.cp./apps/thinmonitor?RIC=IBM.N';
+// const concurrentSessions = 5;
+// const runner = new VisualGridRunner(concurrentSessions);
+// let eyes: typeof Eyes | null;
+// const viewPortWidth = 900;
+// const viewPortHeight = 600;
+//
+// async function setupApplitools(appName: string, testName: string) {
+//     const configuration = new Configuration();
+//     configuration.setAppName(appName);
+//     configuration.setTestName(testName);
+//     configuration.addBrowser(600, 900, BrowserType.CHROME);
+//
+//     eyes = new Eyes(runner);
+//     eyes.setConfiguration(configuration);
+//     eyes.setServerUrl(applitoolsConfig.server);
+//     const k = applitoolsConfig.apiKey;
+//     eyes.setApiKey(k);
+//     let batchInfo = new BatchInfo('AB Test', null, null);
+//     await eyes.setBatch(batchInfo);
+//     // await Util.Time.sleep(5000);
+// }
+//
+// describe('Thin Monitor Test Suite', async function () {
+//     let a: any;
+//
+//     before(async function () {
+//         await ThinMonitorHelper.setupEikon();
+//         await Eikon.instance.launchOrAttach();
+//         await setupApplitools('Applitools Thin Monitor', 'ThinMonitor_Visual_Runner');
+//     });
+//
+//     beforeEach(async function () {
+//     });
+//
+//     afterEach(async function () {
+//         await Eikon.instance.closeAllWindows();
+//         await runner.getAllTestResults(false);
+//     });
+//
+//     after(async function () {
+//         await eyes.abortIfNotClosed();
+//     });
+//
+//     it('Launch the Thin Monitor App and Verify its opening with IBM RIC', async function () {
+//         console.log ('eyes=' + eyes.getMatchLevel());
+//         eyes.setLogHandler(new ConsoleLogHandler(true));
+//         let app: ThinMonitorApp = await Eikon.instance.openApp(OpenBy.search(SearchBy.url(searchURL)), ThinMonitorApp);
+//         await eyes.open(Eikon.instance.client);
+//         await Time.sleep(25000);
+//         //await app.appFrame.maximize();
+//         await Eikon.instance.client.frame(null);
+//
+//         await eyes.check('TM_Launch_RIC', Target.window());
+//
+//         await eyes.closeAsync();
+//         /*let title: string = await app.pageTitle.getText();
+//         expect(title).to.contains('MON');
+//
+//         await Eikon.instance.switchToAppFrame();
+//         let RIC: string = await Eikon.instance.client.element(objGrid.firstRICName_5).getText();
+//         await eyes.check(
+//             'test1_cell',
+//             Target.region('#monitorGrid div.tr-lg[part="body"] > div.column.bold-text[field="x_ric_name"]'),
+//         );
+//
+//         await Eikon.instance.switchToAppFrame();
+//         await eyes.check('test1_cell', Target.region(objGrid.firstRICName_5));
+//
+//         expect(RIC).to.contains('IBM.N');*/
+//     });
+//
+//    /* it('Test Batch 2', async function () {
+//         console.log ('eyes=' + eyes.getMatchLevel());
+//
+//         let app: ThinMonitorApp = await Eikon.instance.openApp(OpenBy.search(SearchBy.url(searchURL)), ThinMonitorApp);
+//         await Time.sleep(25000);
+//         await app.appFrame.maximize();
+//         await Eikon.instance.client.frame(null);
+//
+//         await eyes.check('TM_Launch_RIC_2', Target.window());
+//
+//         let title: string = await app.pageTitle.getText();
+//         expect(title).to.contains('MON');
+//
+//         await Eikon.instance.switchToAppFrame();
+//         let RIC: string = await Eikon.instance.client.element(objGrid.firstRICName_5).getText();
+//         await eyes.check(
+//             'test2_cell',
+//             Target.region('#monitorGrid div.tr-lg[part="body"] > div.column.bold-text[field="x_ric_name"]'),
+//         );
+//
+//         await Eikon.instance.switchToAppFrame();
+//         await eyes.check('test2_cell', Target.region(objGrid.firstRICName_5));
+//
+//         expect(RIC).to.contains('IBM.N');
+//
+//     });
+//
+//     it('Test Batch 3', async function () {
+//         console.log ('eyes=' + eyes.getMatchLevel());
+//
+//         let app: ThinMonitorApp = await Eikon.instance.openApp(OpenBy.search(SearchBy.url(searchURL)), ThinMonitorApp);
+//         await Time.sleep(25000);
+//         await app.appFrame.maximize();
+//         await Eikon.instance.client.frame(null);
+//
+//         await eyes.check('TM_Launch_RIC_3', Target.window());
+//
+//         let title: string = await app.pageTitle.getText();
+//         expect(title).to.contains('MON');
+//
+//         await Eikon.instance.switchToAppFrame();
+//         let RIC: string = await Eikon.instance.client.element(objGrid.firstRICName_5).getText();
+//         await eyes.check(
+//             'test3_cell',
+//             Target.region('#monitorGrid div.tr-lg[part="body"] > div.column.bold-text[field="x_ric_name"]'),
+//         );
+//
+//         await Eikon.instance.switchToAppFrame();
+//         await eyes.check('test3_cell', Target.region(objGrid.firstRICName_5));
+//
+//         expect(RIC).to.contains('IBM.N');
+//
+//     });*/
+// });
