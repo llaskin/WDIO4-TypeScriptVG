@@ -19,7 +19,7 @@ async function setupApplitools(appName: string, testName: string) {
     eyes = new Eyes(runner);
 
     eyes.setConfiguration(configuration);
-    const k = 'Y7bRjY1ZkKKR9a4F1wCMNlBVyr1y6a23ckJo9I7ihQM110';
+    const k = process.env.APPLITOOLS_API_KEY;
     eyes.setApiKey(k);
     let batchInfo = new BatchInfo('myFirstTest Test', null, null);
     await eyes.setBatch(batchInfo);
